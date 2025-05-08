@@ -1,6 +1,6 @@
-Discord sunucu etiketleri ile ilgili bir otomatik komut dosyasını Türkçe'ye çevirmekten memnuniyet duyarım. Metin içeriğini (script kısmı hariç) Türkçe'ye çeviriyorum:
-
 # Etiketli Discord Sunucusu Elde Etmek İçin Otomasyon Betiği
+
+> **Not**: Bu script orijinal olarak Bytexenon tarafından geliştirilmiş olup, şu anki sürüm cyr0nix tarafından optimize edilmiş geliştirilmiş bir versiyonudur.
 
 6 Mayıs 2025 tarihinden itibaren, yeni oluşturulan Discord sunucularının küçük, rastgele bir şansı (yaklaşık 500'de 1) deneysel etiket özelliğini içermektedir; bu betik, böyle bir sunucuyu bulmak için tekrarlayan sunucu oluşturma ve silme sürecini otomatikleştirir.
 
@@ -9,8 +9,8 @@ Discord sunucu etiketleri ile ilgili bir otomatik komut dosyasını Türkçe'ye 
 
 Betiği çalıştırmadan önce, aşağıdaki adımları tamamladığınızdan emin olun:
 
-1.  **2FA'yı Devre Dışı Bırakın**: Betik, onay istemeden geçici sunucuları otomatik olarak silebilmek için 2FA'nın devre dışı bırakılmasına ihtiyaç duyar. Betiği kullanmayı bitirdikten sonra 2FA'yı yeniden etkinleştirin.
-2.  **Vencord'u Yükleyin**: Bu betik, Vencord istemci modifikasyonu tarafından sunulan fonksiyonlara dayanır. Resmi kaynaktan indirip yükleyin.
+1.  **2FA'yı Devre Dışı Bırakın**: Script, onay istemeden geçici sunucuları otomatik olarak silebilmek için 2FA'nın devre dışı bırakılmasına ihtiyaç duyar. Betiği kullanmayı bitirdikten sonra 2FA'yı yeniden etkinleştirin.
+2.  **Vencord'u Yükleyin**: Bu script, Vencord istemci modifikasyonu tarafından sunulan fonksiyonlara dayanır. Resmi kaynaktan indirip yükleyin.
 3.  **Vencord Eklentisini Etkinleştirin**: Discord Ayarlarını açın, Vencord "Eklentiler" sekmesine gidin, `ConsoleShortcuts` eklentisini bulun ve etkinleştirin. Bu eklenti, geliştirici konsoluna yararlı kütüphane fonksiyonlarını (`findByProps` gibi) sunar, bu da betiğin çalışması için gereklidir.
 4.  **Discord İstemcisini Yeniden Başlatın**: Vencord ve eklentinin doğru şekilde yüklendiğinden emin olmak için Discord'u tamamen kapatıp yeniden açın.
 5.  **Manuel Olarak Bir Sunucu Oluşturun (Gerekli)**: Betiği çalıştırmadan önce, normal Discord arayüzü üzerinden tek bir sunucu oluşturduğunuzdan emin olun. Bu gerekli bir adımdır.
@@ -21,11 +21,11 @@ Betiği çalıştırmadan önce, aşağıdaki adımları tamamladığınızdan e
 2.  **Yapıştırmaya İzin Verin (İstenirse)**: Konsol, kod yapıştırmadan önce açıkça `allow pasting` yazmanızı isteyebilir.
 3.  **Kodu Yapıştırın ve Çalıştırın**: Aşağıdaki JavaScript kod bloğunun tamamını kopyalayın, konsola yapıştırın ve Enter tuşuna basın.
 
-**Betik bir sunucu bulduğunda veya durdurmaya karar verdiğinizde hesabınızda 2FA'yı yeniden etkinleştirmeyi unutmayın.**
+**Script bir sunucu bulduğunda veya durdurmaya karar verdiğinizde hesabınızda 2FA'yı yeniden etkinleştirmeyi unutmayın.**
 
 ---
 
-## Betik
+## Script
 
 > [!DİKKAT]
 > ## **🚨 UYARI: AKTİF YASAKLAMA UYGULAMASI 🚨**
@@ -36,7 +36,7 @@ Betiği çalıştırmadan önce, aşağıdaki adımları tamamladığınızdan e
 
 <details>
 
-<summary> <b>BETİK (genişletmek için tıklayın)</b> </summary>
+<summary> <b>Script (genişletmek için tıklayın)</b> </summary>
 
 ```js
 const BASE_INTERVAL = 120_000;
@@ -210,8 +210,6 @@ class GuildCreator {
 
 // Initial start of the script
 console.log("===== Guild Creation Script =====");
-console.log("       Script by cyr0nix         ");
-console.log("=================================");
 console.log("Starting guild creation script with randomized intervals.");
 console.log(
   `Base interval: ${BASE_INTERVAL / 1000}s. Max additional random delay: ${
@@ -231,7 +229,7 @@ guildCreator.processGuildCycle();
 ### Sorun Giderme
 
 1. **Neden `Uncaught TypeError: Cannot read properties of null (reading 'createGuildFromTemplate')` hatasını alıyorum?**  
-   1.1. Betiği çalıştırmadan önce manuel olarak yeni bir sunucu oluşturmanız gerekir; aksi takdirde, betik yeni bir sunucu oluşturamaz. Bu betiği tekrar çalıştırmanız gerekirse, bu adımı tekrarlamanız gerekecektir.
+   1.1. Scripti çalıştırmadan önce manuel olarak yeni bir sunucu oluşturmanız gerekir; aksi takdirde, script yeni bir sunucu oluşturamaz. Bu betiği tekrar çalıştırmanız gerekirse, bu adımı tekrarlamanız gerekecektir.
 
 2. **Neden `Uncaught ReferenceError: findByProps is not defined` hatasını alıyorum?**  
    2.1. **Vencord**'u yüklemeniz ve **ConsoleShortcuts** eklentisini etkinleştirmeniz gerekiyor (**ConsoleJanitor** değil!). Bundan sonra, istemcinizi yeniden başlatın, manuel olarak bir sunucu oluşturun ve ardından betiği çalıştırın.
