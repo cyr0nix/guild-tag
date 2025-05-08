@@ -44,10 +44,8 @@ const DELETE_DELAY = 2_000;
 const MAX_RANDOM_ADDITIONAL_DELAY = 3_000;
 
 const SERVER_NAME = "Tag server";
-const STOP_ON_FOUND = true; // Stop the script when a guild with the tag is found,
-                            // or keep running to find more guilds with the tag
+const STOP_ON_FOUND = true; 
 
-/// DO NOT EDIT BELOW THIS LINE ///
 console.clear();
 
 function murmurhash3_32_gc(e, _) {
@@ -222,10 +220,7 @@ console.log(
 );
 console.log("----------------------------------------");
 
-// Create an instance of the GuildCreator class
 const guildCreator = new GuildCreator();
-
-// Immediately start the first cycle instead of just scheduling
 guildCreator.processGuildCycle();
 ```
 
