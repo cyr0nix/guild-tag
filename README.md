@@ -1,4 +1,4 @@
-# Etiketli Discord Sunucusu Elde Etmek İçin Otomasyon Betiği
+# Discord'da Bulunan Guild Tag'ı Alma Taktiği
 
 > **Not**: Bu script orijinal olarak Bytexenon tarafından geliştirilmiş olup, şu anki sürüm cyr0nix tarafından optimize edilmiş geliştirilmiş bir versiyonudur.
 
